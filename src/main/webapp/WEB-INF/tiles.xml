@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/layout/classic.jsp">       
+        <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="home" extends="base.definition">
+        <put-attribute name="title" value="Ask Network"></put-attribute>
+        <put-attribute name="progress" value="/WEB-INF/layout/progressbar.jsp"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp"></put-attribute>
+        <!-- <put-attribute name="search-menu" value="/WEB-INF/layout/search-menu.jsp"></put-attribute> -->
+        <put-attribute name="floating-menu" value="/WEB-INF/layout/floating-menu.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="question-detail" extends="base.definition">
+        <put-attribute name="title" value="Question Detail"></put-attribute>
+        <put-attribute name="progress" value="/WEB-INF/layout/progressbar.jsp"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/question-detail.jsp"></put-attribute>
+        <!-- <put-attribute name="search-menu" value="/WEB-INF/layout/search-menu.jsp"></put-attribute> -->
+        <put-attribute name="floating-menu" value="/WEB-INF/layout/floating-menu.jsp"></put-attribute>
+    </definition>
+    
+    <definition name="add-question" extends="base.definition">
+        <put-attribute name="title" value="Ask Question"></put-attribute>
+        <put-attribute name="progress" value="/WEB-INF/layout/progressbar.jsp"></put-attribute>
+        <put-attribute name="body" value="/WEB-INF/views/add-question.jsp"></put-attribute>
+        <!-- <put-attribute name="search-menu" value="/WEB-INF/layout/search-menu.jsp"></put-attribute> -->
+        <put-attribute name="floating-menu" value="/WEB-INF/layout/floating-menu.jsp"></put-attribute>
+    </definition>
+    
+</tiles-definitions>
