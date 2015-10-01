@@ -47,7 +47,7 @@
 												<div class="row">											
 													<div class="col-md-10 col-md-push-1">													
 													    <label class="floating-label" for="login-username">Tags</label>
-														<form:input path="tags" cssClass="form-control" id="c-input-search"/>
+														<form:input path="tags" cssClass="form-control" id="tag-search"/>
 													</div>
 												</div>
 											</div>
@@ -68,24 +68,6 @@
 				</div>
 			</div>
 		</div>
-		<script>
-  $(document).ready(function() {
-
-	$('#n-input-search').autocomplete({
-		serviceUrl: '${pageContext.request.contextPath}/getTags',
-		paramName: "tagName",
-		delimiter: ",",
-	   transformResult: function(response) {
-		    	
-		return {      	
-		  //must convert json to javascript object before process
-		  suggestions: $.map($.parseJSON(response), function(item) {		            	
-		      return { value: item.categoryName, data: item.id };
-		   })		            
-		 };
-		}		    
-	 });				
-  });
-  </script>
+		
 	</div>		
 	

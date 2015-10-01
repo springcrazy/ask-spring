@@ -3,6 +3,8 @@ package com.rhcloud.crazy.controller;
 import java.beans.PropertyEditorSupport;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,12 +60,33 @@ public class QuestionController {
 		return "add-question";
 	} 
 	
-	@RequestMapping(value = "/getTags", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/getTags", method = RequestMethod.GET)
 	public @ResponseBody
 	List<Tag> getTags(@RequestParam String tagName) {
+		System.out.println("Value returned is ==>" + tagService.findTagByName(tagName));
 		return tagService.findTagByName(tagName);
+	}*/
+	
+	@RequestMapping(value = "/getTags", method = RequestMethod.POST, produces = "application/json")
+	public  @ResponseBody List<Tag> getTags(@RequestBody Tag tag, HttpServletResponse response) {
+		System.out.println("Found " + String.valueOf(tagService.findTagByName(tag.getName()).size()));
+		return tagService.findTagByName(tag.getName());
+ 
 	}
 	
+	/*private List<Tag> simulateSearchResult(String empName) {
+		 
+		List<Tag> result = tagService.findTagByName(tagName);
+ 
+		// iterate a list and filter by tagName
+		for (Tag tag : data) {
+			if (emp.getEmpName().contains(empName)) {
+				result.add(emp);
+			}
+		}
+ 
+		return result;
+	}*/
 
 	@RequestMapping(value = "/add-question", method = RequestMethod.POST)
 	public String addJobDetail(@ModelAttribute("question") Question question) {		

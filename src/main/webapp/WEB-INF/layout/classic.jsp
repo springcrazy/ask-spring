@@ -9,7 +9,17 @@
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="initial-scale=1.0, width=device-width" name="viewport">
 	<title><tiles:getAsString name="title"/></title>
-
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"/></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"> </script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/autoComplete.js"></script>
+	<script>
+		if (window.jQuery) {  
+		    alert('jQuery is loaded');
+		} else {
+		    alert('jQuery is not loaded');
+		}									
+	</script>
 	<!-- css -->
 	<link href="<c:url value='/resources/css/base.css'/>" rel="stylesheet">
 
